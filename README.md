@@ -1,95 +1,43 @@
-# OnlyFans Chat Autoresponder — Example Integration
+# OnlyFans Chat Autoresponder — example integration
 
-An open-source developer example that shows how to build **OnlyFans chat automation**: auto-reply to inbound fan chats with an **AI chatter bot**, powered by the [DirtyDialogues](https://dirtydialogues.com) chatting API.
+An open-source developer example that shows the pattern for **OnlyFans chat automation**: auto-drafting replies to inbound fan messages with an **AI chatter assistant**, on top of [DirtyDialogues](https://dirtydialogues.com) — the OnlyFans agency chat & CRM platform.
 
-> **This is an EXAMPLE integration.** It demonstrates the *shape* of a chat autoresponder — how you wire an inbound fan message to an AI chatter assistant and get a drafted reply back. The endpoint paths and response fields in the code are **placeholders**. For the real request/response contract, authentication, and rate limits, see the live docs: **[https://dirtydialogues.com/docs](https://dirtydialogues.com/docs)**.
+**[▶ Get started at dirtydialogues.com →](https://dirtydialogues.com)** · [Pricing](https://dirtydialogues.com/pricing)
 
 ---
 
+> **This is an open-source example.** It demonstrates the *shape* of a chat autoresponder — how you wire an inbound fan message to an AI chatter assistant and get a drafted reply back. The endpoint paths and fields in the code are **illustrative placeholders**. DirtyDialogues is a managed platform, so head to **[dirtydialogues.com](https://dirtydialogues.com)** to get started.
+
 ## What it does
 
-This repo contains a single, well-commented script that:
+A single, well-commented script that:
 
-1. Receives an inbound fan chat message (simulated here; in production this comes from your platform's webhook or message queue).
-2. Sends it to the DirtyDialogues chatting API with your API key.
-3. Gets back an AI-drafted reply from the chatter assistant.
-4. Prints the suggested reply — which your app can send automatically or queue for a human chatter to approve.
+1. Receives an inbound fan chat message (simulated here; in production it comes from your platform's webhook or message queue).
+2. Passes it to an AI chatter assistant for a context-aware draft.
+3. Prints the suggested reply — which your app can send automatically or route to a human chatter to approve.
 
-It is intentionally minimal: no framework, no database, no external dependencies. It is a starting point you adapt to your own stack.
+Intentionally minimal: no framework, no database, no dependencies. A starting point you adapt to your own stack.
 
 ## Why — the agency use case
 
-OnlyFans management agencies handle a high volume of inbound direct messages across many creator inboxes. Human chatters cannot watch every conversation around the clock, and slow first replies lose conversations. This example demonstrates the common pattern agencies use to keep response times low:
+OnlyFans management agencies handle a high volume of inbound DMs across many creator inboxes. Human chatters can't watch every conversation around the clock, and slow first replies lose conversations. [DirtyDialogues](https://dirtydialogues.com) is the platform agencies use to keep response times low:
 
 - **Inbound** — a fan message arrives.
-- **Assist** — your app forwards it to the DirtyDialogues chatting API, which drafts a context-aware reply.
-- **Deliver** — your app either sends the reply automatically (full **OnlyFans chat automation**) or routes it to a human chatter for review (human-in-the-loop).
+- **Assist** — an AI chatter drafts a context-aware reply.
+- **Deliver** — your team sends it automatically (full **OnlyFans chat automation**) or reviews it first (human-in-the-loop).
 
-The point of the **AI chatter bot** here is to draft, not to replace judgment — you decide how much of the loop is automated.
-
-## How it works
-
-```
-inbound fan message  ─▶  your app  ─▶  DirtyDialogues chatting API  ─▶  drafted reply  ─▶  send or review
-```
+The **AI chatter bot** drafts, it doesn't replace judgment — you decide how much of the loop is automated.
 
 ## Requirements
 
-- **Node.js 18+** — the example uses the built-in global `fetch`, so there are no dependencies to install.
-- **A DirtyDialogues API key** — **[get one at https://dirtydialogues.com](https://dirtydialogues.com)**.
+- **Node.js 18+** — uses the built-in global `fetch`, no dependencies to install.
 
-## Install
+## About DirtyDialogues
 
-```bash
-git clone https://github.com/<your-org>/onlyfans-chat-autoresponder-example.git
-cd onlyfans-chat-autoresponder-example
-# No npm install needed — the example uses only Node.js built-ins.
-```
+[**DirtyDialogues**](https://dirtydialogues.com) is an OnlyFans agency platform for managing fan conversations at scale: unified inbox, mass DMs, automated & AI-assisted replies, team shifts, and analytics.
 
-## Configure
+**[Get started →](https://dirtydialogues.com)** · **[Pricing →](https://dirtydialogues.com/pricing)**
 
-Copy the example environment file and fill in your values:
+## License
 
-```bash
-cp .env.example .env
-```
-
-`.env`:
-
-```dotenv
-# Your DirtyDialogues API key — get one at https://dirtydialogues.com
-API_KEY=your_api_key_here
-
-# API base URL — confirm the correct value in https://dirtydialogues.com/docs
-BASE_URL=https://api.dirtydialogues.com
-```
-
-Your real `.env` is already listed in `.gitignore` — never commit API keys.
-
-## Usage
-
-Run the example:
-
-```bash
-node autoresponder.js
-```
-
-It simulates one inbound fan message, calls the chatting API, and prints the AI chatter assistant's suggested reply. See [`autoresponder.js`](./autoresponder.js) for the fully commented flow, including the exact spot where you swap the placeholder endpoint for the real one.
-
-## → Get your API key
-
-This example **requires a DirtyDialogues API key** — without one, the call in `autoresponder.js` will not return a reply.
-
-**→ Get your API key at [https://dirtydialogues.com](https://dirtydialogues.com)**
-
-## Docs & live endpoints
-
-The code uses clearly-marked placeholder endpoints and field names so you can read the integration at a glance. This is an **example** — the real request/response schema, authentication, and limits live in the official docs:
-
-**[https://dirtydialogues.com/docs](https://dirtydialogues.com/docs)**
-
-## License & disclaimer
-
-MIT — see [LICENSE](./LICENSE).
-
-This is an unofficial, developer-facing example. "OnlyFans" is a trademark of its respective owner; this project is not affiliated with, endorsed by, or sponsored by it. It provides no fan messaging platform of its own — it demonstrates a client integration with the DirtyDialogues chatting API.
+MIT. An independent open-source example.
