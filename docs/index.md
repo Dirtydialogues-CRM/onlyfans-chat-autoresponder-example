@@ -23,9 +23,9 @@ OnlyFans management agencies handle a high volume of direct messages across many
 
 ## Honest note
 
-This is an **example** integration. The endpoints and response fields in the code are clearly-marked placeholders so you can read the shape of the flow. For the real request/response contract, authentication, and limits, use the live docs.
+This is an **example** integration. The endpoints and response fields in the code are clearly-marked placeholders so you can read the shape of the flow. For the real request/response contract, authentication, and limits, use the DirtyDialogues platform.
 
 ## Links
 
 - **Get an API key** → [https://dirtydialogues.com](https://dirtydialogues.com)
-- **Live API docs** → [https://dirtydialogues.com/docs](https://dirtydialogues.com/docs)
+- **Live API docs** → [https://dirtydialogues.com](https://dirtydialogues.com)
